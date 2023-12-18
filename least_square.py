@@ -3,6 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.linalg import cholesky
 
+print("学号: " + "2107040641")
+print("姓名: " + "孟凡祥")
+
 def normal_equation(x_:np.ndarray, y_:np.ndarray, functions):
     A = np.vstack([func(x_) for func in functions]).T
 
@@ -30,13 +33,20 @@ def drow(x_, y_, fit_coefficients):
     y_new = np.vstack([x_new, np.ones_like(x_new)]).T @ fit_coefficients
     ax.plot(x_new, y_new)
 
-    plt.savefig("least_square.png")
+    plt.savefig("./png/least_square.png")
 
     plt.show()
 
 def main():
     x_ = np.array([10, 11, 12, 13, 14, 15, 16])
     y_ = np.array([70, 122, 144, 152, 174, 196, 202])
+
+    fig = plt.figure()
+    ax : plt.Axes = fig.add_subplot()
+
+    ax.plot(x_, y_, "o")
+    plt.savefig("./png/least_square_original.png")
+    plt.show()
     
     print("设函数为 y = a * x + b")
     
