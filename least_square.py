@@ -30,6 +30,8 @@ def drow(x_, y_, fit_coefficients):
     y_new = np.vstack([x_new, np.ones_like(x_new)]).T @ fit_coefficients
     ax.plot(x_new, y_new)
 
+    plt.savefig("least_square.png")
+
     plt.show()
 
 def main():
